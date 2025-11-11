@@ -5,7 +5,7 @@ import chalk from "chalk"
 import figlet from "figlet"
 
 import {Command} from "commander";
-import { login } from "./commands/auth/login.js";
+import { login, logout, whoami } from "./commands/auth/login.js";
 
 dotenv.config();
 
@@ -28,6 +28,8 @@ async function main() {
     program.version("0.0.1")
     .description("Orbital CLI - A Cli Based AI Tool")
     .addCommand(login)
+    .addCommand(logout)
+    .addCommand(whoami)
 
       // Default action shows help
   program.action(() => {
