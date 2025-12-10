@@ -43,6 +43,13 @@ app.get("/" , (req , res)=>{
     })
 })
 
+// here the home route
+app.get("/home" , (req , res)=>{
+    res.json({
+      routes: ["/api/auth" , "/device" , "/health"]
+    })
+})
+
 app.listen(process.env.PORT , ()=>{
     console.log(`You application is runningo on http://localhost:${process.env.PORT}`)
 })
