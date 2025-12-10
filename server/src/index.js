@@ -12,7 +12,7 @@ app.use(
     origin: "http://localhost:3000", // Replace with your frontend's origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-  })
+  }) 
 );
 
 app.all("/api/auth/*splat", toNodeHandler(auth)); 
@@ -36,6 +36,12 @@ app.get("/health" , (req , res)=>{
     res.send("OK")
 })
 
+// here the home route
+app.get("/" , (req , res)=>{
+    res.json({
+      routes: ["/api/auth" , "/device" , "/health"]
+    })
+})
 
 app.listen(process.env.PORT , ()=>{
     console.log(`You application is runningo on http://localhost:${process.env.PORT}`)
