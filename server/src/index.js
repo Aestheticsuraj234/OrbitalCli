@@ -36,17 +36,14 @@ app.get("/health" , (req , res)=>{
     res.send("OK")
 })
 
-// here the home route
-app.get("/" , (req , res)=>{
-    res.json({
-      routes: ["/api/auth" , "/device" , "/health"]
-    })
-})
 
 // here the home route
-app.get("/home" , (req , res)=>{
+app.get("/welcome" , (req , res)=>{
     res.json({
-      routes: ["/api/auth" , "/device" , "/health"]
+      routes: ["/api/auth" , "/device" , "/health"],
+      message: "Welcome to the API",
+      version: "1.0.0",
+      status: "OK"
     })
 })
 
